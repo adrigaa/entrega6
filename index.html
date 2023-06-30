@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <title>Entrega 5</title>
+</head>
+<body>
+    <h1>Simulador de Valor Líquido</h1>
+    <button onclick="calcularValorLiquidoTotal()">Calcular Valor Líquido Total</button>
+
+    <h2>Produtos</h2>
+    <ul id="lista-produtos"></ul>
+
+    <h2>Resultado</h2>
+    <div id="resultado"></div>
+
+    <h2>Adicionar Produto</h2>
+    <input type="text" id="nome-produto" placeholder="Nome do produto">
+    <input type="number" id="valor-bruto-produto" placeholder="Valor bruto do produto">
+    <button onclick="adicionarProduto()">Adicionar Produto</button>
+
+    <script>
+        function exibirProdutos() {
+            var listaProdutos = document.getElementById("lista-produtos");
+            listaProdutos.innerHTML = "";
+
+            for (var i = 0; i < produtos.length; i++) {
+                var produto = produtos[i];
+                var itemLista = document.createElement("li");
+                itemLista.textContent = produto.nome + ": R$ " + produto.valorBruto.toFixed(2) + " (Valor líquido: R$ " + produto.valorLiquido.toFixed(2) + ")";
+                listaProdutos.appendChild(itemLista);
+            }
+        }
+
+        function exibirResultado(valorLiquidoTotal) {
+            var resultado = document.getElementById("resultado");
+            resultado.textContent = "Valor líquido total: R$ " + valorLiquidoTotal.toFixed(2);
+            resultado.style.color = valorLiquidoTotal > 1000 ? "green" : "red";
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
